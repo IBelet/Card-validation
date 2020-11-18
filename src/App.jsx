@@ -1,24 +1,59 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getCountry, getPaymentMethods } from './api/api';
 import './App.scss';
-import { Switch, Link, Route } from 'react-router-dom';
+import countries from './api/countries.json';
 
-export const App = () => (
-  <div>
-    React starter pack
+const countriesKeys = Object.keys(countries);
+
+export const App = () => {
+  const [paymentMethods, setPaymentMethods] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState('');
+
+  useEffect(async() => {
+    const userCountry = await getCountry();
+
+    setSelectedCountry(userCountry);
+  }, []);
+
+  useEffect(async() => {
+    const result = await getPaymentMethods(selectedCountry);
+
+    setPaymentMethods(result);
+  }, [selectedCountry]);
+
+  const handleCounrySelection = (event) => {
+    setSelectedCountry(event.target.value);
+  };
+
+  return (
     <div>
-      <nav className="nav">
-        <Link to="/">Home</Link>
-        <Link to="/users">Users</Link>
-      </nav>
+      <select
+        onChange={handleCounrySelection}
+        value={selectedCountry}
+      >
+        <option value="" disabled>
+          Select your country
+        </option>
+        {countriesKeys.map(countryCode => (
+          <option
+            value={countryCode}
+            key={countryCode}
+          >
+            {countries[countryCode]}
+          </option>
+        ))}
+      </select>
 
-      <Switch>
-        <Route path="/users">
-          <div>Users page</div>
-        </Route>
-        <Route path="/">
-          <div>Home page</div>
-        </Route>
-      </Switch>
+      {paymentMethods && (
+        <ul>
+          {paymentMethods.map(method => (
+            <li key={method.ps_type_id}>
+              {method.name}
+              <img src={method.img_url} alt="" />
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
-  </div>
-);
+  );
+};
