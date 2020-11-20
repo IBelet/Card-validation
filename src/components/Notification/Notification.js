@@ -1,8 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import './Notification.scss';
 
-// eslint-disable-next-line react/prop-types
 export const Notification = ({ isError }) => (
   <div className={classNames({
     notification: true,

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { CountrySelect } from '../CountrySelect/CountrySelect';
@@ -10,7 +9,6 @@ import {
   onlyCharacters,
   validateExpDate,
 } from '../../validation';
-import './CardForm.scss';
 
 const initialValues = {
   name: '',
@@ -72,10 +70,17 @@ export const CardForm = ({
             name="name"
             id="name"
             value={values.name}
-            onChange={event => setValues({
-              ...values,
-              name: onlyCharacters(event.target.value),
-            })}
+            onChange={(event) => {
+              setValues({
+                ...values,
+                name: onlyCharacters(event.target.value),
+              });
+              setErrors({
+                ...errors,
+                name: false,
+              });
+            }
+            }
             onBlur={() => setErrors({
               ...errors,
               name: !validateName(values.name),
@@ -93,13 +98,20 @@ export const CardForm = ({
           <input
             className="input"
             type="text"
-            name="name"
-            id="name"
+            name="card"
+            id="card"
             value={values.card}
-            onChange={event => setValues({
-              ...values,
-              card: onlyNumbers(event.target.value),
-            })}
+            onChange={(event) => {
+              setValues({
+                ...values,
+                card: onlyNumbers(event.target.value),
+              });
+              setErrors({
+                ...errors,
+                card: false,
+              });
+            }
+            }
             onBlur={() => setErrors({
               ...errors,
               card: !validateCardNumber(values.card),
@@ -117,13 +129,19 @@ export const CardForm = ({
           <input
             className="input"
             type="text"
-            name="name"
-            id="name"
+            name="cvv"
+            id="cvv"
             value={values.cvv}
-            onChange={event => setValues({
-              ...values,
-              cvv: onlyNumbers(event.target.value),
-            })}
+            onChange={(event) => {
+              setValues({
+                ...values,
+                cvv: onlyNumbers(event.target.value),
+              });
+              setErrors({
+                ...errors,
+                cvv: false,
+              });
+            }}
             onBlur={event => setErrors({
               ...errors,
               cvv: !values.cvv,
@@ -141,13 +159,19 @@ export const CardForm = ({
           <input
             className="input"
             type="month"
-            name=""
-            id=""
+            name="expDate"
+            id="expDate"
             value={values.expDate}
-            onChange={event => setValues({
-              ...values,
-              expDate: event.target.value,
-            })}
+            onChange={(event) => {
+              setValues({
+                ...values,
+                expDate: event.target.value,
+              });
+              setErrors({
+                ...errors,
+                expDate: false,
+              });
+            }}
             onBlur={() => setErrors({
               ...errors,
               expDate: !validateExpDate(values.expDate),

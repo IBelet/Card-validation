@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import './App.scss';
 import { CardForm } from './components/CardForm/CardForm';
 import { Notification } from './components/Notification/Notification';
 

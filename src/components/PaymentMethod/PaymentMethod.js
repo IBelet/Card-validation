@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import { getPaymentMethods } from '../../api/api';
-import './PaymentMethod.scss';
 
 export const PaymentMethod = ({
   selectedCountry,
@@ -17,7 +16,11 @@ export const PaymentMethod = ({
   const findPaymentMethods = async() => {
     const result = await getPaymentMethods(selectedCountry);
 
-    setPaymentMethods(result);
+    if (!result) {
+      setPaymentMethods([]);
+    } else {
+      setPaymentMethods(result);
+    }
   };
 
   // eslint-disable-next-line no-console
@@ -42,8 +45,6 @@ export const PaymentMethod = ({
                   name="method"
                   value={method.ps_type_id}
                   onChange={(event) => {
-                    // eslint-disable-next-line no-console
-                    console.log(event.target.value);
                     setValues({
                       ...values,
                       method: event.target.value,

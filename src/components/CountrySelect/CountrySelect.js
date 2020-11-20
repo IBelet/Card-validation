@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
-import './CountrySelect.scss';
 import countries from '../../api/countries.json';
 import { getCountry } from '../../api/api';
 
 const countriesKeys = Object.keys(countries);
 
-// eslint-disable-next-line react/prop-types
 export const CountrySelect = ({ setSelectedCountry, selectedCountry }) => {
   useEffect(() => {
     findUserCountry();
@@ -22,8 +20,12 @@ export const CountrySelect = ({ setSelectedCountry, selectedCountry }) => {
   };
 
   return (
-    <>
-      <span>Select your country: </span>
+    <div className="is-flex
+      is-align-items-center
+      is-justify-content-space-evenly
+      is-flex-wrap-wrap"
+    >
+      <span>{`Select your country: `}</span>
       <div className="control has-icons-left">
         <div className="select is-primary is-rounded">
           <select
@@ -47,6 +49,6 @@ export const CountrySelect = ({ setSelectedCountry, selectedCountry }) => {
           <i className="fas fa-globe" />
         </span>
       </div>
-    </>
+    </div>
   );
 };
