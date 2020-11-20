@@ -1,24 +1,31 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react';
 import './App.scss';
-import { Switch, Link, Route } from 'react-router-dom';
+import { CardForm } from './components/CardForm/CardForm';
+import { Notification } from './components/Notification/Notification';
 
-export const App = () => (
-  <div>
-    React starter pack
-    <div>
-      <nav className="nav">
-        <Link to="/">Home</Link>
-        <Link to="/users">Users</Link>
-      </nav>
+export const App = () => {
+  const [isError, setIsError] = useState(false);
+  const [isFilled, setIsFilled] = useState(false);
 
-      <Switch>
-        <Route path="/users">
-          <div>Users page</div>
-        </Route>
-        <Route path="/">
-          <div>Home page</div>
-        </Route>
-      </Switch>
+  const doPayment = (values) => {
+    setIsError(Boolean(values));
+    // Make some request to server and set isError
+
+    setIsFilled(true);
+  };
+
+  return (
+    <div className="container
+      p-4
+      is-flex
+      is-flex-direction-column
+      is-align-items-center"
+    >
+      {isFilled && <Notification isError={isError} />}
+      <CardForm
+        doPayment={doPayment}
+      />
     </div>
-  </div>
-);
+  );
+};
