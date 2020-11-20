@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import { getPaymentMethods } from '../../api/api';
 
@@ -22,9 +21,6 @@ export const PaymentMethod = ({
       setPaymentMethods(result);
     }
   };
-
-  // eslint-disable-next-line no-console
-  console.log(paymentMethods);
 
   return (
     <div className="is-flex
