@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import { getPaymentMethods } from '../../api/api';
 
@@ -32,29 +33,28 @@ export const PaymentMethod = ({
         ? (
           <>
             {paymentMethods.map(method => (
-              <div
-                key={method.ps_type_id}
-                className="box m-1 is-flex is-align-items-center"
-              >
-                <input
-                  type="radio"
-                  name="method"
-                  value={method.ps_type_id}
-                  onChange={(event) => {
-                    setValues({
-                      ...values,
-                      method: event.target.value,
-                    });
-                  }}
+              <label key={method.ps_type_id}>
+                <div className="box m-1 is-flex is-align-items-center">
+                  <input
+                    type="radio"
+                    name="method"
+                    value={method.ps_type_id}
+                    onChange={(event) => {
+                      setValues({
+                        ...values,
+                        method: event.target.value,
+                      });
+                    }}
 
-                />
-                <img
-                  src={method.img_url}
-                  alt={method.name}
-                  className="m-1"
-                />
-                {method.name}
-              </div>
+                  />
+                  <img
+                    src={method.img_url}
+                    alt={method.name}
+                    className="m-1"
+                  />
+                  {method.name}
+                </div>
+              </label>
             ))}
           </>
         )

@@ -21,7 +21,7 @@ export function validateCardNumber(cardNumber) {
 }
 
 export function validateName(name) {
-  const letters = /^[A-Za-z]+$/;
+  const letters = /[A-Za-z\s]/g;
 
   return name.match(letters);
 }

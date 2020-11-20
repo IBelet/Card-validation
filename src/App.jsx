@@ -11,6 +11,9 @@ export const App = () => {
     // Make some request to server and set isError
 
     setIsFilled(true);
+    setTimeout(() => {
+      setIsFilled(false);
+    }, 3000);
   };
 
   return (
@@ -20,10 +23,10 @@ export const App = () => {
       is-flex-direction-column
       is-align-items-center"
     >
-      {isFilled && <Notification isError={isError} />}
-      <CardForm
-        doPayment={doPayment}
-      />
+      {isFilled
+        ? <Notification isError={isError} />
+        : <CardForm doPayment={doPayment} />
+      }
     </div>
   );
 };

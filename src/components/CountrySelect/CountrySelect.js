@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import countries from '../../api/countries.json';
 import { getCountry } from '../../api/api';

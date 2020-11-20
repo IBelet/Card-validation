@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { CountrySelect } from '../CountrySelect/CountrySelect';
