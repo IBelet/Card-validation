@@ -1,59 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import { getCountry, getPaymentMethods } from './api/api';
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react';
 import './App.scss';
-import countries from './api/countries.json';
-
-const countriesKeys = Object.keys(countries);
+import { CardForm } from './components/CardForm/CardForm';
+import { Notification } from './components/Notification/Notification';
 
 export const App = () => {
-  const [paymentMethods, setPaymentMethods] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState('');
+  const [isError, setIsError] = useState(false);
+  const [isFilled, setIsFilled] = useState(false);
 
-  useEffect(async() => {
-    const userCountry = await getCountry();
+  const doPayment = (values) => {
+    setIsError(Boolean(values));
+    // Make some request to server and set isError
 
-    setSelectedCountry(userCountry);
-  }, []);
-
-  useEffect(async() => {
-    const result = await getPaymentMethods(selectedCountry);
-
-    setPaymentMethods(result);
-  }, [selectedCountry]);
-
-  const handleCounrySelection = (event) => {
-    setSelectedCountry(event.target.value);
+    setIsFilled(true);
   };
 
   return (
-    <div>
-      <select
-        onChange={handleCounrySelection}
-        value={selectedCountry}
-      >
-        <option value="" disabled>
-          Select your country
-        </option>
-        {countriesKeys.map(countryCode => (
-          <option
-            value={countryCode}
-            key={countryCode}
-          >
-            {countries[countryCode]}
-          </option>
-        ))}
-      </select>
-
-      {paymentMethods && (
-        <ul>
-          {paymentMethods.map(method => (
-            <li key={method.ps_type_id}>
-              {method.name}
-              <img src={method.img_url} alt="" />
-            </li>
-          ))}
-        </ul>
-      )}
+    <div className="container
+      p-4
+      is-flex
+      is-flex-direction-column
+      is-align-items-center"
+    >
+      {isFilled && <Notification isError={isError} />}
+      <CardForm
+        doPayment={doPayment}
+      />
     </div>
   );
 };
