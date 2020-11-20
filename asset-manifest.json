@@ -1,20 +1,17 @@
 {
   "files": {
-    "main.css": "/Test-Task-for-Compassnet/static/css/main.9373676d.chunk.css",
-    "main.js": "/Test-Task-for-Compassnet/static/js/main.643887d6.chunk.js",
-    "main.js.map": "/Test-Task-for-Compassnet/static/js/main.643887d6.chunk.js.map",
+    "main.js": "/Test-Task-for-Compassnet/static/js/main.1c80aa00.chunk.js",
+    "main.js.map": "/Test-Task-for-Compassnet/static/js/main.1c80aa00.chunk.js.map",
     "runtime-main.js": "/Test-Task-for-Compassnet/static/js/runtime-main.c9f42155.js",
     "runtime-main.js.map": "/Test-Task-for-Compassnet/static/js/runtime-main.c9f42155.js.map",
-    "static/js/2.885acca1.chunk.js": "/Test-Task-for-Compassnet/static/js/2.885acca1.chunk.js",
-    "static/js/2.885acca1.chunk.js.map": "/Test-Task-for-Compassnet/static/js/2.885acca1.chunk.js.map",
+    "static/js/2.c098f608.chunk.js": "/Test-Task-for-Compassnet/static/js/2.c098f608.chunk.js",
+    "static/js/2.c098f608.chunk.js.map": "/Test-Task-for-Compassnet/static/js/2.c098f608.chunk.js.map",
     "index.html": "/Test-Task-for-Compassnet/index.html",
-    "static/css/main.9373676d.chunk.css.map": "/Test-Task-for-Compassnet/static/css/main.9373676d.chunk.css.map",
-    "static/js/2.885acca1.chunk.js.LICENSE.txt": "/Test-Task-for-Compassnet/static/js/2.885acca1.chunk.js.LICENSE.txt"
+    "static/js/2.c098f608.chunk.js.LICENSE.txt": "/Test-Task-for-Compassnet/static/js/2.c098f608.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c9f42155.js",
-    "static/js/2.885acca1.chunk.js",
-    "static/css/main.9373676d.chunk.css",
-    "static/js/main.643887d6.chunk.js"
+    "static/js/2.c098f608.chunk.js",
+    "static/js/main.1c80aa00.chunk.js"
   ]
 }

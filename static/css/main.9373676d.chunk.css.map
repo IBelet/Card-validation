@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/App.scss"],"names":[],"mappings":"AAAA,KACE,YAAa,CACb,WAAY,CAFd,OAKI,iBAAkB","file":"main.9373676d.chunk.css","sourcesContent":[".nav {\n  display: flex;\n  margin: 20px;\n\n  * {\n    margin-right: 10px;\n  }\n}\n"]}
