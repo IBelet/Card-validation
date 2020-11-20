@@ -1,6 +1,6 @@
-# Test task for CompassNet.
+# Test task for CompassNet
 - [Demo](https://ibelet.github.io/Test-Task-for-Compassnet/)
-## Description.
+## Description
 Implement payment form with validation. Data is taken from API
 
 ## Tools used:
